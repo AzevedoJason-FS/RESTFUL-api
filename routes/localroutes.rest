@@ -1,0 +1,20 @@
+GET http://localhost:8000/movies
+
+###
+
+GET http://localhost:8000/movies/62f94b9aabe2926cca698a56
+
+###
+
+POST http://localhost:8000/movies
+Content-Type: application/json
+
+{
+    "name": "Iron Man",
+    "collection_Name": "Marvel",
+    "year": 2008
+}
+
+###
+
+DELETE http://localhost:8000/movies/62f94b741714e593ed5994c4
