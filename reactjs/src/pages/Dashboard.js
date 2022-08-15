@@ -76,13 +76,13 @@ function Dashboard() {
        <h2>Movies:</h2>
        <Link to="/">Home</Link>
        <ul>
-         {
-           movies?.map(movie => {
-             <li key={movie._id}>
-              <Link to={`/movie/${movie._id}`}>{movie.name}</Link> 
-             </li>
-           })
-         }
+       {
+                movies && movies.map(movie => (
+                    <li key={movie._id}>
+                        <Link to={`/movie/${movie._id}`}>{movie.name}</Link>
+                    </li>
+                ))
+            }
        </ul>
        <form onSubmit={(e) => handleSubmit(e)}>
            <label>
