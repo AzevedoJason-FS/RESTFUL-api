@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
-import '../App.css';
+import Header from '../components/Header'
+
 
 function Home() {
   
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
        <h2>Movie List</h2>
-       <Link to="/dashboard">Dashboard</Link>
-      </header>
     </div>
   );
 }
