@@ -73,11 +73,12 @@ function Dashboard() {
   return (
     <div className="App" style={styles.app}>
       <Header />
-       <ul>
+       <ul style={styles.ul}>
+         <h4 style={styles.title}>All Movies In Database:</h4>
        {
                 movies && movies.map(movie => (
                     <li key={movie._id}>
-                        <Link to={`/movie/${movie._id}`}>{movie.name}</Link>
+                        <Link to={`/movie/${movie._id}`} style={styles.link}>{movie.name}</Link>
                     </li>
                 ))
             }
@@ -132,7 +133,8 @@ const styles = {
 
   formTitle: {
     color: 'black',
-    marginTop: '0'
+    marginTop: '0',
+    fontSize: '30px'
   },
 
   label: {
@@ -154,5 +156,22 @@ const styles = {
     padding: '10px',
     width: '100%',
     cursor: 'pointer'
+  },
+
+  link: {
+    color: 'blue',
+    fontSize: '20px'
+  },
+
+  ul: {
+    listStyle: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '0 0 6rem 2rem',
+    alignItems: 'flex-start'
+  },
+
+  title: {
+    color: 'black'
   }
 }
