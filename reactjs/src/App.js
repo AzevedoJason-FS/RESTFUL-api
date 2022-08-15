@@ -1,12 +1,12 @@
 import './App.css';
-import React, { useEffect, useReact } from "react"
+import React, { useEffect, useState } from "react"
 
 function App() {
   const [movies, setMovies] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const API_BASE = process.env.NODE_ENV === 'development' ? `http://localhost:8000` : process.env.REACT_APP_BASE_URL;
+  const API_BASE = process.env.NODE_ENV === 'development' ? `http://localhost:8000/api/v1` : process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
     let ignore = false;
