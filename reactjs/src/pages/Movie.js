@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import Header from '../components/Header'
 
 import '../App.css';
 
@@ -102,28 +103,56 @@ function Movie() {
 
   return (
     <div className="App">
-      <header className="App-header">
+    <Header />
         <h1>Movie Profile</h1>
         <h2>{values && values.name}</h2>
         <h2>{values && values.collection_Name}</h2>
+        <h2>{values && values.year}</h2>
         <button onClick={() => deleteMovie()}> Delete Movie</button>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <div style={styles.formBox}>
+        <form onSubmit={(e) => handleSubmit(e)} style={styles.form}>
+        <h2 style={styles.formTitle}>Update Movie</h2>
             <label>
                 Name:
                 <input type="text" name="name" value={values.name} onChange={handleInputChanges} />
             </label>
             <label>
-                Name:
+                Collection:
                 <input type="text" name="collection_Name" value={values.collection_Name} onChange={handleInputChanges} />
+            </label>
+            <label>
+                Year:
+                <input type="text" name="year" value={values.year} onChange={handleInputChanges} />
             </label>
             <input type="submit" value="Submit" />
         </form>
-      </header>
+        </div>
     </div>
   );
 }
 
 export default Movie;
+
+const styles = {
+  formBox: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+
+  form: {
+    maxWidth: '800px',
+    maxHeigth: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '60px',
+    boxShadow: 'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+    borderRadius: '12px',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
+
+  formTitle: {
+    color: 'black',
+    marginTop: '0'
+  },
+}
