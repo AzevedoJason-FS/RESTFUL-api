@@ -1,4 +1,4 @@
-GET http://localhost:8000/movies
+GET http://localhost:8000/api/v1/movies
 
 ###
 
@@ -6,7 +6,7 @@ GET http://localhost:8000/movies/62f94b9aabe2926cca698a56
 
 ###
 
-POST http://localhost:8000/movies
+POST http://localhost:8000/api/v1/movies
 Content-Type: application/json
 
 {
