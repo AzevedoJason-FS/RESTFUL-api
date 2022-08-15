@@ -10,7 +10,13 @@ const movieRouter = require('./routes/movies')
 
 app.use(express.json());
 app.use(cors());
-app.use('/movies', movieRouter)
+app.use('api/v1/movies', movieRouter)
+
+app.use(express.static(path.join(__dirname,'../reactjs/build')))
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../reactjs/build', 'index.html'))
+})
 
 const PORT = process.env.PORT || 8000;
 
