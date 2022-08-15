@@ -1,5 +1,5 @@
-import '../App.css';
 import React, { useEffect, useState } from "react"
+import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 
 function Dashboard() {
@@ -71,10 +71,8 @@ function Dashboard() {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
-       <h2>Movies:</h2>
-       <Link to="/">Home</Link>
+    <div className="App" style={styles.app}>
+      <Header />
        <ul>
        {
                 movies && movies.map(movie => (
@@ -84,24 +82,77 @@ function Dashboard() {
                 ))
             }
        </ul>
-       <form onSubmit={(e) => handleSubmit(e)}>
-           <label>
+       <div style={styles.formBox}>
+       <form onSubmit={(e) => handleSubmit(e)} style={styles.form}>
+        <h2 style={styles.formTitle}>Create Movie</h2>
+           <label style={styles.label}>
                Name:
-               <input type="text" name="name" value={values.name} onChange={handleInputChange} />
+               <input style={styles.input} type="text" name="name" value={values.name} onChange={handleInputChange} />
            </label>
-           <label>
+           <label style={styles.label}>
                Collection Name:
-               <input type="text" name="collection_Name" value={values.collection_Name} onChange={handleInputChange} />
+               <input style={styles.input} type="text" name="collection_Name" value={values.collection_Name} onChange={handleInputChange} />
            </label>
-           <label>
+           <label style={styles.label}>
                Year:
-               <input type="text" name="year" value={values.year} onChange={handleInputChange} />
+               <input style={styles.input} type="text" name="year" value={values.year} onChange={handleInputChange} />
            </label>
-            <input type="submit" value="Submit" />
+            <input style={styles.submitButton} type="submit" value="Submit" />
        </form>
-      </header>
+       </div>
     </div>
   );
 }
 
 export default Dashboard;
+
+const styles = {
+  app: {
+    minHeight: '100vh',
+    fontSize: 'calc(10px + 2vmin)',
+    color: 'white',
+  },
+
+  formBox: {
+    display: 'flex',
+    justifyContent: 'center'
+  },
+
+  form: {
+    maxWidth: '800px',
+    maxHeigth: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    padding: '60px',
+    boxShadow: 'rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px',
+    borderRadius: '12px',
+    alignItems: 'center',
+    justifyContent: 'flex-end'
+  },
+
+  formTitle: {
+    color: 'black',
+    marginTop: '0'
+  },
+
+  label: {
+    color: 'black',
+    fontSize: '20px',
+    marginBottom: '2rem'
+  },
+
+  input: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+
+  submitButton: {
+    background: '#1abc9c',
+    border: 'none',
+    color: 'white',
+    fontSize: '24px',
+    padding: '10px',
+    width: '100%',
+    cursor: 'pointer'
+  }
+}
