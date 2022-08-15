@@ -42,7 +42,7 @@ function Dashboard() {
 
   const createMovie = async () => {
     try{
-        await fetch(`${API_BASE}/movies/`,{
+        await fetch(`${API_BASE}/movies`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
